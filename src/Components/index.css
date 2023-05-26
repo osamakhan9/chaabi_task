@@ -1,0 +1,129 @@
+
+.tcontainer {
+    
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url('https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    height: 100vh;
+    opacity: initial;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .heading {
+    font-style: italic;
+    color: rgb(249, 255, 254);
+    font-size: xx-large;
+    padding-top: 100px;
+  }
+
+  .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .displayshow {
+    background-image: url('./doc/display.jpg');
+    color: black;
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 150px;
+    padding-right: 150px;
+    border-radius: 20px;
+    font-style: normal;
+  }
+  .typing_canava{
+    border: none;
+    outline: none;
+    font-size: 20px;
+  }
+
+  .nextdisplay {
+    color: rgb(6, 245, 45);
+    font-size: xx-large;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #fff;
+  }
+  
+  .ind {
+    padding: 10px;
+    font-size: larger;
+  }
+  
+  .tcontainer p {
+    margin-bottom: 10px;
+  }
+  
+  .tcontainer textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    height: 50%;
+  }
+  
+  .tcontainer button {
+    padding: 10px 20px;
+    background-color: teal;
+    color: #fdfdfd;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  
+  .tcontainer button:hover {
+    background-color: #420636;
+  }
+  
+  .results-container {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  
+  .results-container p {
+    font-size: 18px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .tcontainer {
+      margin: 0 auto;
+      padding: 20px;
+      background-image: url('https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+      background-size: cover;
+      height: fit-content;
+      opacity: initial;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+     
+  .tcontainer button:hover {
+    background-color: #420636;
+  }
+  
+  .tcontainer textarea {
+    width: 80%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    height: 50%;
+  }
+
+  }
