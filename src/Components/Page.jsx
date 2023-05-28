@@ -30,19 +30,19 @@ const Page = () => {
 
 
   //  time start state 
-  const [startTime, setStartTime] = useState(0);
+  const [startTime, setStartTime] = useState(300);
 
-  const [endTime, setEndTime] = useState(0);
+  // const [endTime, setEndTime] = useState(0);
 
   //  wpm state set
-  const [wpm, setWPM] = useState(0);
+  // const [wpm, setWPM] = useState(0);
 
   const [accuracy, setAccuracy] = useState(100);
 
   const [keyPresses, setKeyPresses] = useState(0);
 
   const handleText = (e) => {
-    const { value } = e.target;
+    const { value } = e.target.value;
     setTypedText(value);
     if (!startTime) {
       setStartTime(Date.now());
@@ -55,9 +55,9 @@ const Page = () => {
     setCurrentSentence(sentence);
     setTypedText('');
     setNextCharacters(sentence);
-    setStartTime(0);
-    setEndTime(0);
-    setWPM(0);
+    setStartTime(300);
+    // setEndTime(0);
+    // setWPM(0);
     setAccuracy(0);
     setKeyPresses(0);
   };
@@ -68,19 +68,19 @@ const Page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setEndTime(Date.now());
+    // setEndTime(Date.now());
 
     const wordsCount = currentSentence.trim().split(' ').length;
     const typedWordsCount = typedText.trim().split(' ').length;
 
-    const minutes = (endTime - startTime) / 60000;
-    const grossWPM = typedWordsCount / minutes;
-    const netWPM = grossWPM - typedWordsCount / 10;
-    const calculatedWPM = netWPM > 0 ? Math.floor(netWPM) : 0;
+    // const minutes = (endTime - startTime) / 60000;
+    // const grossWPM = typedWordsCount / minutes;
+    // const netWPM = grossWPM - typedWordsCount / 10;
+    // const calculatedWPM = netWPM > 0 ? Math.floor(netWPM) : 0;
 
     const calculatedAccuracy = (typedWordsCount / wordsCount) * 100 || 0;
 
-    setWPM(calculatedWPM);
+    // setWPM(calculatedWPM);
     setAccuracy(calculatedAccuracy.toFixed(2));
   };
 
@@ -95,19 +95,17 @@ const Page = () => {
     );
     setNextCharacters(charactersToType);
   }, [currentSentence, typedText]);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (startTime > 0 && Date.now() - startTime >= 5 * 60 * 1000) {
-        setEndTime(Date.now());
-        clearInterval(interval);
-      }
+      setStartTime((prevTimer)=> prevTimer-1)
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [startTime]);
+  }, []);
 
   return (
 
@@ -120,6 +118,15 @@ const Page = () => {
       className="tcontainer"
   
     >
+        <motion.p
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          className='time'
+          // transition={{ delay: 0.2, duration: 0.5 }}
+        >
+         Time:- {startTime}
+        </motion.p>
+
     <div className='content'>
       <h1 className='heading'>Touch Typing Game</h1>
       <div className='displayshow'>
@@ -135,7 +142,7 @@ const Page = () => {
       </div>
       <p className='nextdisplay'>{nextCharacters}</p>
 
-      <form onSubmit={handleSubmit}>
+      <form onInput={handleSubmit}>
 
 
         {/* text area i means display typing  */}
@@ -152,17 +159,17 @@ const Page = () => {
           className='typing_canava'
         />
         
-        <motion.button
+        {/* <motion.button
           type="submit"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           Submit
-        </motion.button>
+        </motion.button> */}
       </form>
     
         <div className='features'>
-          <div className='ind'>
+          {/* <div className='ind'>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -170,7 +177,7 @@ const Page = () => {
               >
                 WPM: {wpm}
               </motion.p>
-          </div>
+          </div> */}
           <div className='ind'>
             <motion.p
               initial={{ opacity: 0 }}
