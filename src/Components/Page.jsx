@@ -42,7 +42,7 @@ const Page = () => {
   const [keyPresses, setKeyPresses] = useState(0);
 
   const handleText = (e) => {
-    const { value } = e.target.value;
+    const { value } = e.target;
     setTypedText(value);
     if (!startTime) {
       setStartTime(Date.now());
